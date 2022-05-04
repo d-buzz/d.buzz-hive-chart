@@ -3,10 +3,15 @@ const getPrice = require('../controllers/getPrice')
 
 const getPriceRouter = Router()
 
-getPriceRouter.get('/getPrice', async(req, res) => {
-	const HIVE_PRICE = await getPrice()
+getPriceRouter.get('/hive', async(req, res) => {
+	const PRICE = await getPrice('hive')
 
-	res.send(JSON.stringify(HIVE_PRICE))
+	res.send(JSON.stringify(PRICE))
+})
+getPriceRouter.get('/hbd', async(req, res) => {
+	const PRICE = await getPrice('hbd')
+
+	res.send(JSON.stringify(PRICE))
 })
 
 module.exports = getPriceRouter
